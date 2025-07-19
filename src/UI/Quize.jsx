@@ -56,7 +56,7 @@ const Quize = () => {
       Score: newScore,
     };
      try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}`, userData);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/sendinfo`, userData);
       alert("Score submitted!");
     } catch (err) {
       console.error(err);
