@@ -1,9 +1,17 @@
-import React, { useState ,useEffect ,useRef} from 'react';
+import {React, useState ,useEffect ,useRef,useContext} from 'react';
 import quizData from './quizedata';
+import UserContext from '../userContext';
+import { useNavigate ,} from 'react-router-dom';
+
+import axios from "axios";
+
 
 const Quize = () => {
-  const [sec, setSec] = useState(60); // Start from 60 seconds
-
+    const navigate = useNavigate();
+  
+  const { user, setUser } = useContext(UserContext);
+  const [score, setScore] = useState(0);
+  const [sec, setSec] = useState(60); 
   const [min, setMin] = useState(30);
 
   useEffect(() => {
@@ -11,21 +19,20 @@ const Quize = () => {
     const interval = setInterval(() => {
       setSec((prev) => {
         if (prev <= 1) {
-          clearInterval(interval); // Stop the timer
+          clearInterval(interval); 
           return 0;
         }
         return prev - 1;
       });
-    }, 1000); // Tick every second
-    if(sec==60)
+    }, 1000); 
+    if(sec==0)
     {
       setMin(min-1);
     }
 
-    return () => clearInterval(interval); // Clean up on unmount
+    return () => clearInterval(interval);
   }, []);
   const [userAnswers, setUserAnswers] = useState({});
-  const [score, setScore] = useState(null);
    const formRef = useRef(null);
   const handleOptionChange = (questionIndex, option) => {
     setUserAnswers({
@@ -34,7 +41,8 @@ const Quize = () => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit =async (e) => {
+    e.preventDefault();
     let newScore = 0;
     quizData.forEach((q, index) => {
       if (userAnswers[index] === q.answer) {
@@ -42,29 +50,32 @@ const Quize = () => {
       }
     });
     setScore(newScore);
-    if(score>=20)
-    {
-      alert("Congratulations, you have passed the quiz with a score of "+newScore);
+    setUser([])
+    const userData = {
+      Username: user.Username,
+      AUID: user.AUID,
+      Score: newScore,
+    };
+     try {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}`, userData);
+      alert("Score submitted!");
+    } catch (err) {
+      console.error(err);
+      alert("Error submitting score");
     }
-    else if(score<20&&score>=10)
-    {
-      alert("You have passed the quiz with a score of "+newScore);
-    
-  }
-  else
-  {
-    alert("Sorry, you have failed the quiz with a score of "+newScore);
-  }
+  console.log(userData);
+  navigate('/');
+
   };
   useEffect(() => {
     const timer = setTimeout(() => {
       console.log("Time's up! Auto-submitting...");
       if (formRef.current) {
-        formRef.current.requestSubmit();  // Auto-submit the form
+        formRef.current.requestSubmit(); 
       }
-    },180000); // 60 seconds
+    },180000);
 
-    return () => clearTimeout(timer); // Cleanup on unmount
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -105,13 +116,7 @@ const Quize = () => {
       </button>
 
     </form>
-      
-
-      {score !== null && (
-        <div className="mt-6 text-xl font-bold text-green-700">
-          Your Score: {score} / {quizData.length}
-        </div>
-      )}
+  
     </div>
   );
 };

@@ -1,16 +1,23 @@
 import React from 'react'
+import { useContext,useState } from 'react';
 import Navbar from './Navbar'
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,} from 'react-router-dom';
+import UserContext from "../userContext";
+
 
 
 const Login = () => {
           const navigate = useNavigate();
+          const { setUser } = useContext(UserContext);
+          const [Username, setUsername] = useState("");
+          const [AUID, setAUID] = useState("");
 
     function getinfo(e)
     {  
 
         e.preventDefault();
+        setUser((prev) => ({ ...prev, Username, AUID }))
         navigate("/quize");
 
     }
@@ -27,11 +34,16 @@ const Login = () => {
             
             <div className='p-2'>
             <label className='text-xl font-extralight '>Enter Your Name:</label><br></br>
-            <input type="text" name="username" required className='border-2  border-slate-400 border-solid rounded-md p-1.5'   />
+            <input 
+            type="text" name="username" 
+            onChange={(e) => setUsername(e.target.value)}
+            required className='border-2  border-slate-400 border-solid rounded-md p-1.5'   />
             </div>
             <div className='p-4'>
             <label  className='text-xl font-extralight'>AUID No:</label><br></br>
-            <input type="text" name="auid" required  className='border-2  border-slate-400 border-solid rounded-md p-1.5'/>
+            <input type="text" name="auid"
+            onChange={(e) => setAUID(e.target.value)}
+             required  className='border-2  border-slate-400 border-solid rounded-md p-1.5'/>
             <br />
             </div>
             <button type="submit"  className='border-[1px] rounded-2xl border-solid border-white bg-orange-700 p-2 text-white'>
