@@ -1,8 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect ,useRef} from 'react';
 import quizData from './quizedata';
+
 const Quize = () => {
+  const [sec, setSec] = useState(60); // Start from 60 seconds
+
+  const [min, setMin] = useState(30);
+
+  useEffect(() => {
+    const min=30;
+    const interval = setInterval(() => {
+      setSec((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval); // Stop the timer
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000); // Tick every second
+    if(sec==60)
+    {
+      setMin(min-1);
+    }
+
+    return () => clearInterval(interval); // Clean up on unmount
+  }, []);
   const [userAnswers, setUserAnswers] = useState({});
   const [score, setScore] = useState(null);
+   const formRef = useRef(null);
   const handleOptionChange = (questionIndex, option) => {
     setUserAnswers({
       ...userAnswers,
@@ -32,10 +56,25 @@ const Quize = () => {
     alert("Sorry, you have failed the quiz with a score of "+newScore);
   }
   };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log("Time's up! Auto-submitting...");
+      if (formRef.current) {
+        formRef.current.requestSubmit();  // Auto-submit the form
+      }
+    },180000); // 60 seconds
+
+    return () => clearTimeout(timer); // Cleanup on unmount
+  }, []);
 
   return (
     <div className="max-w-4xl mx-auto p-6">
-      {quizData.map((q, index) => (
+        <div className="text-2xl font-bold text-red-600 text-center">
+      ⏳ Time Left: {min}:{sec}s
+    </div>
+
+    <form ref={formRef} onSubmit={handleSubmit}>
+    {quizData.map((q, index) => (
         <div key={index} className="mb-8">
           <h2 className="text-lg font-semibold mb-2">
             {index + 1}. {q.question}
@@ -64,6 +103,9 @@ const Quize = () => {
       >
         Submit
       </button>
+
+    </form>
+      
 
       {score !== null && (
         <div className="mt-6 text-xl font-bold text-green-700">
