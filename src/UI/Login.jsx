@@ -11,15 +11,10 @@ const Login = () => {
     {  
 
         e.preventDefault();
-        alert("form submit\n");
-        const
         navigate("/quize");
 
     }
-    // function submits()
-    // {
-    //     navigate('/quize');
-    // }
+
   return (
     <div>
     <Navbar/>
@@ -41,7 +36,6 @@ const Login = () => {
             </div>
             <button type="submit"  className='border-[1px] rounded-2xl border-solid border-white bg-orange-700 p-2 text-white'>
             Start The Quize
-            
             </button>
         </form>
     </section>
