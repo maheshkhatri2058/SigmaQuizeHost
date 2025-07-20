@@ -16,6 +16,9 @@ const Landingpage = () => {
         </section>
     </>
   )
+
+
+
 }
 
 export default Landingpage;

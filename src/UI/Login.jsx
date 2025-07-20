@@ -57,3 +57,71 @@ const Login = () => {
 }
 
 export default Login
+// import React, { useContext, useState } from 'react';
+// import Navbar from './Navbar';
+// import { useNavigate } from 'react-router-dom';
+// import UserContext from '../userContext';
+
+// const Login = () => {
+//   const navigate = useNavigate();
+//   const { setUser } = useContext(UserContext);
+//   const [Username, setUsername] = useState('');
+//   const [AUID, setAUID] = useState('');
+
+//   function getinfo(e) {
+//     e.preventDefault();
+//     setUser((prev) => ({ ...prev, Username, AUID }));
+//     navigate('/quize');
+//   }
+
+//   return (
+//     <>
+//       <Navbar />
+//       <section className="min-h-screen bg-gradient-to-r from-orange-50 to-orange-100 flex items-center justify-center p-4">
+//         <div className="w-full max-w-md bg-white shadow-2xl rounded-3xl p-8 sm:p-10">
+//           <div className="text-center mb-6">
+//             <h2 className="text-3xl font-bold text-orange-600">Best of Luck!!</h2>
+//             <p className="text-gray-600 mt-1 text-sm">Please fill your details carefully</p>
+//           </div>
+//           <form onSubmit={getinfo} className="space-y-6">
+//             <div>
+//               <label className="block text-gray-700 text-sm sm:text-base font-medium mb-1">
+//                 Enter Your Name:
+//               </label>
+//               <input
+//                 type="text"
+//                 name="username"
+//                 onChange={(e) => setUsername(e.target.value)}
+//                 required
+//                 placeholder="Ishow Speed"
+//                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+//               />
+//             </div>
+//             <div>
+//               <label className="block text-gray-700 text-sm sm:text-base font-medium mb-1">
+//                 AUID No:
+//               </label>
+//               <input
+//                 type="text"
+//                 name="auid"
+//                 onChange={(e) => setAUID(e.target.value)}
+//                 required
+//                 placeholder="AU123456"
+//                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+//               />
+//             </div>
+//             <button
+//               type="submit"
+//               className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2.5 rounded-xl transition duration-300"
+//             >
+//             Start The Quiz
+//             </button>
+//           </form>
+//         </div>
+//       </section>
+//     </>
+//   );
+// };
+
+// export default Login;
+

@@ -76,9 +76,69 @@ const Quize = () => {
 
     return () => clearTimeout(timer);
   }, []);
+  
+  useEffect(() => {
+    // ✅ Force Fullscreen
+    const enterFullScreen = () => {
+      const elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
+    };
+    enterFullScreen();
+
+    // ✅ Detect Tab Switch or Window Blur
+    const handleBlur = () => {
+      alert("You switched tabs or minimized the window!");
+      // Optionally submit the quiz or log the incident
+    };
+
+    // ✅ Detect Exit Fullscreen
+    const handleFullScreenChange = () => {
+      if (!document.fullscreenElement) {
+        alert("You exited fullscreen. Please return immediately.");
+        // Optionally submit the quiz
+      }
+    };
+
+    // ✅ Block Right Click
+    const disableRightClick = (e) => {
+      e.preventDefault();
+    };
+
+    // ✅ Block Developer Tools
+    const disableKeys = (e) => {
+      if (
+        e.keyCode === 123 || // F12
+        (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
+        (e.ctrlKey && e.keyCode === 85) // Ctrl+U
+      ) {
+        e.preventDefault();
+        alert("Dev tools are disabled.");
+      }
+    };
+
+    window.addEventListener('blur', handleBlur);
+    document.addEventListener('fullscreenchange', handleFullScreenChange);
+    document.addEventListener('contextmenu', disableRightClick);
+    document.addEventListener('keydown', disableKeys);
+
+    return () => {
+      window.removeEventListener('blur', handleBlur);
+      document.removeEventListener('fullscreenchange', handleFullScreenChange);
+      document.removeEventListener('contextmenu', disableRightClick);
+      document.removeEventListener('keydown', disableKeys);
+    };
+  }, []);
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className=" quize max-w-4xl mx-auto p-6">
         <div className="text-2xl font-bold text-red-600 text-center">
       ⏳ Time Left: {min}:{sec}s
     </div>
