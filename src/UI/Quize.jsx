@@ -3,34 +3,13 @@ import quizData from './quizedata';
 import UserContext from '../userContext';
 import { useNavigate ,} from 'react-router-dom';
 import axios from "axios";
-
+import Timeshow from './Timeshow';
 
 const Quize = () => {
     const navigate = useNavigate();
   
   const { user, setUser } = useContext(UserContext);
   const [score, setScore] = useState(0);
-  const [sec, setSec] = useState(60); 
-  const [min, setMin] = useState(30);
-
-  useEffect(() => {
-    const min=30;
-    const interval = setInterval(() => {
-      setSec((prev) => {
-        if (prev <= 1) {
-          clearInterval(interval); 
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000); 
-    if(sec==0)
-    {
-      setMin(min-1);
-    }
-
-    return () => clearInterval(interval);
-  }, []);
   const [userAnswers, setUserAnswers] = useState({});
    const formRef = useRef(null);
   const handleOptionChange = (questionIndex, option) => {
@@ -78,7 +57,6 @@ const Quize = () => {
   }, []);
   
   useEffect(() => {
-    // ✅ Force Fullscreen
     const enterFullScreen = () => {
       const elem = document.documentElement;
       if (elem.requestFullscreen) {
@@ -91,33 +69,22 @@ const Quize = () => {
         elem.msRequestFullscreen();
       }
     };
-    enterFullScreen();
-
-    // ✅ Detect Tab Switch or Window Blur
     const handleBlur = () => {
       alert("You switched tabs or minimized the window!");
-      // Optionally submit the quiz or log the incident
     };
-
-    // ✅ Detect Exit Fullscreen
     const handleFullScreenChange = () => {
       if (!document.fullscreenElement) {
         alert("You exited fullscreen. Please return immediately.");
-        // Optionally submit the quiz
       }
     };
-
-    // ✅ Block Right Click
     const disableRightClick = (e) => {
       e.preventDefault();
     };
-
-    // ✅ Block Developer Tools
     const disableKeys = (e) => {
       if (
-        e.keyCode === 123 || // F12
-        (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
-        (e.ctrlKey && e.keyCode === 85) // Ctrl+U
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
+        (e.ctrlKey && e.keyCode === 85)
       ) {
         e.preventDefault();
         alert("Dev tools are disabled.");
@@ -139,10 +106,7 @@ const Quize = () => {
 
   return (
     <div className=" quize max-w-4xl mx-auto p-6">
-        <div className="text-2xl font-bold text-red-600 text-center">
-      ⏳ Time Left: {min}:{sec}s
-    </div>
-
+    <Timeshow/>
     <form ref={formRef} onSubmit={handleSubmit}>
     {quizData.map((q, index) => (
         <div key={index} className="mb-8">
