@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const Timeshow = () => {
-  const [timeLeft, setTimeLeft] = useState(30 * 60); // 30 minutes = 1800 seconds
+  const [timeLeft, setTimeLeft] = useState(55 * 60); // 30 minutes = 1800 seconds
 
   useEffect(() => {
     const timer = setInterval(() => {

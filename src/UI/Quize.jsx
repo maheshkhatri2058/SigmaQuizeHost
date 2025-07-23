@@ -51,7 +51,7 @@ const Quize = () => {
       if (formRef.current) {
         formRef.current.requestSubmit(); 
       }
-    },180000);
+    },3000);
 
     return () => clearTimeout(timer);
   }, []);
