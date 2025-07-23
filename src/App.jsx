@@ -1,5 +1,4 @@
 import './App.css'
-import { SpeedInsights } from "@vercel/speed-insights/react"
 import UserContext from './userContext';
 import Landingpage from './UI/Landingpage';
 import { Route,Routes, useNavigate } from 'react-router-dom';
@@ -10,7 +9,6 @@ function App() {
     const [user, setUser] = useState({ Username: "", AUID: "", Score: 0 });
   return (
     <>
-    <SpeedInsights/>
     <UserContext.Provider value={{ user, setUser }}>
      <Routes>
       <Route path='/' element={<Landingpage/>}></Route>

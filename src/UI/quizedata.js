@@ -1,159 +1,265 @@
 const quizData = [
-  // 🔸 Section A: Python Programming (10 Questions)
+  // 🔸 Section A: General Computer Awareness
   {
-    question: "Who created the Python programming language?",
-    options: ["James Gosling", "Guido van Rossum", "Dennis Ritchie", "Bjarne Stroustrup"],
-    answer: "Guido van Rossum"
+    question: "What does CPU stand for?",
+    options: ["Central Process Unit", "Central Processing Unit", "Computer Processing Unit", "Central Power Unit"],
+    answer: "Central Processing Unit"
   },
-  {
-    question: "What will be the output of print(2 ** 3 ** 2)?",
-    options: ["512", "64", "256", "36"],
-    answer: "512"
-  },
-  {
-    question: "Which of the following is a correct way to create a list in Python?",
-    options: ["list = (1, 2, 3)", "list = [1, 2, 3]", "list = {1, 2, 3}", "list = <1, 2, 3>"],
-    answer: "list = [1, 2, 3]"
-  },
-  {
-    question: "What is the output of this code?\na = [1, 2, 3]\nprint(a[3:])",
-    options: ["[3]", "[]", "Error", "[1, 2, 3]"],
-    answer: "[]"
-  },
-  {
-    question: "Which keyword is used to define a function in Python?",
-    options: ["def", "function", "define", "fun"],
-    answer: "def"
-  },
-  {
-    question: "What is the output of this Python code?\nx = 10\nx += x - 5\nprint(x)",
-    options: ["5", "10", "15", "20"],
-    answer: "15"
-  },
-  {
-    question: "What is the output of this code?\nprint(bool('False'))",
-    options: ["False", "True", "None", "Error"],
-    answer: "True"
-  },
-  {
-    question: "Which of these is a mutable data type in Python?",
-    options: ["tuple", "str", "list", "int"],
-    answer: "list"
-  },
-  {
-    question: "What does len('Python') return?",
-    options: ["5", "6", "7", "Error"],
-    answer: "6"
-  },
-  {
-    question: "Which of the following is used to handle exceptions in Python?",
-    options: ["try/except", "do/catch", "if/else", "check/handle"],
-    answer: "try/except"
-  },
+  // {
+  //   question: "Which type of software is MS Word?",
+  //   options: ["System software", "Application software", "Utility software", "Compiler"],
+  //   answer: "Application software"
+  // },
+  // {
+  //   question: "Which of the following is a file extension for an Excel file?",
+  //   options: [".docx", ".pptx", ".xlsx", ".html"],
+  //   answer: ".xlsx"
+  // },
+  // {
+  //   question: "Which device is used to convert digital signals to analog for internet connectivity?",
+  //   options: ["Router", "Modem", "Switch", "Hub"],
+  //   answer: "Modem"
+  // },
+  // {
+  //   question: "Which of the following is used to boot the computer?",
+  //   options: ["RAM", "Hard Disk", "Power Supply", "BIOS"],
+  //   answer: "BIOS"
+  // },
 
-  // 🔸 Section B: Indian Cricket & IPL (10 Questions)
-  {
-    question: "Who hit 6 sixes in an over in T20I for India?",
-    options: ["MS Dhoni", "Yuvraj Singh", "Rohit Sharma", "Virat Kohli"],
-    answer: "Yuvraj Singh"
-  },
-  {
-    question: "Which Indian cricketer is nicknamed 'Hitman'?",
-    options: ["Rishabh Pant", "Virat Kohli", "Rohit Sharma", "Shikhar Dhawan"],
-    answer: "Rohit Sharma"
-  },
-  {
-    question: "Which IPL team has won the most titles (as of 2025)?",
-    options: ["Mumbai Indians", "Chennai Super Kings", "Gujarat Titans", "Kolkata Knight Riders"],
-    answer: "Mumbai Indians"
-  },
-  {
-    question: "Who won the Purple Cap in IPL 2023?",
-    options: ["Mohammed Shami", "Arshdeep Singh", "Yuzvendra Chahal", "Rashid Khan"],
-    answer: "Mohammed Shami"
-  },
-  {
-    question: "What is the maximum number of overs a bowler can bowl in a T20 match?",
-    options: ["4", "5", "10", "6"],
-    answer: "4"
-  },
-  {
-    question: "Which Indian cricketer has a double century in T20 cricket?",
-    options: ["Shubman Gill", "KL Rahul", "No Indian has", "Rohit Sharma"],
-    answer: "No Indian has"
-  },
-  {
-    question: "In which year was the first IPL played?",
-    options: ["2006", "2007", "2008", "2009"],
-    answer: "2008"
-  },
-  {
-    question: "Which stadium is known as the 'Home of Indian Cricket'?",
-    options: ["Eden Gardens", "Wankhede Stadium", "Arun Jaitley Stadium", "M. A. Chidambaram Stadium"],
-    answer: "Eden Gardens"
-  },
-  {
-    question: "Which cricketer is famous for the helicopter shot?",
-    options: ["Rishabh Pant", "MS Dhoni", "Hardik Pandya", "Sanju Samson"],
-    answer: "MS Dhoni"
-  },
-  {
-    question: "Who is the current BCCI president (as of 2025)?",
-    options: ["Jay Shah", "Roger Binny", "Sourav Ganguly", "Anurag Thakur"],
-    answer: "Roger Binny"
-  },
+  // // 🔸 Section B: General Science & Chemistry
+  // {
+  //   question: "Which of the following does not conduct electricity?",
+  //   options: ["NaCl in water", "Solid NaCl", "NaOH in water", "HCl in water"],
+  //   answer: "Solid NaCl"
+  // },
+  // {
+  //   question: "Which is the most electronegative element?",
+  //   options: ["Oxygen", "Fluorine", "Nitrogen", "Chlorine"],
+  //   answer: "Fluorine"
+  // },
+  // {
+  //   question: "The chemical symbol for Sodium is:",
+  //   options: ["So", "Sd", "Na", "S"],
+  //   answer: "Na"
+  // },
+  // {
+  //   question: "Which of the following is a noble gas?",
+  //   options: ["Nitrogen", "Neon", "Oxygen", "Hydrogen"],
+  //   answer: "Neon"
+  // },
+  // {
+  //   question: "Which element is a liquid at room temperature?",
+  //   options: ["Mercury", "Lead", "Copper", "Zinc"],
+  //   answer: "Mercury"
+  // },
 
-  // 🔸 Section C: IQ & Logical Reasoning (10 Questions)
-  {
-    question: "Which number comes next: 3, 6, 12, 24, ?",
-    options: ["36", "48", "46", "50"],
-    answer: "48"
-  },
-  {
-    question: "Find the odd one out:",
-    options: ["2", "4", "8", "9"],
-    answer: "9"
-  },
-  {
-    question: "Which direction is opposite to North-East?",
-    options: ["South-West", "North-West", "South-East", "East"],
-    answer: "South-West"
-  },
-  {
-    question: "If DOG = 26, what is CAT = ?",
-    options: ["24", "27", "25", "23"],
-    answer: "24"
-  },
-  {
-    question: "If it takes 3 people 3 days to complete a task, how long will 6 people take?",
-    options: ["1.5 days", "3 days", "6 days", "2 days"],
-    answer: "1.5 days"
-  },
-  {
-    question: "What is the next letter in this pattern? A, C, F, J, O, ?",
-    options: ["R", "U", "T", "S"],
-    answer: "U"
-  },
-  {
-    question: "What comes next: 1, 4, 9, 16, ?",
-    options: ["20", "23", "25", "36"],
-    answer: "25"
-  },
-  {
-    question: "If 1 = 5, 2 = 25, 3 = 125, then 4 = ?",
-    options: ["625", "100", "105", "225"],
-    answer: "625"
-  },
-  {
-    question: "Which shape has the most number of sides?",
-    options: ["Hexagon", "Pentagon", "Octagon", "Decagon"],
-    answer: "Decagon"
-  },
-  {
-    question: "If in a code: CAR = DBS, then BAT = ?",
-    options: ["CBV", "CBW", "CAU", "DBU"],
-    answer: "CBW"
-  }
+  // // 🔸 Section C: GK & Current Affairs
+  // {
+  //   question: "Who is the President of India as of 2025?",
+  //   options: ["Ram Nath Kovind", "Droupadi Murmu", "Pratibha Patil", "Narendra Modi"],
+  //   answer: "Droupadi Murmu"
+  // },
+  // {
+  //   question: "Where is the Statue of Unity located?",
+  //   options: ["Gujarat", "Rajasthan", "Maharashtra", "Madhya Pradesh"],
+  //   answer: "Gujarat"
+  // },
+  // {
+  //   question: "Which is the largest desert in the world?",
+  //   options: ["Gobi", "Thar", "Sahara", "Antarctica"],
+  //   answer: "Antarctica"
+  // },
+  // {
+  //   question: "Which planet is called the Red Planet?",
+  //   options: ["Mars", "Venus", "Jupiter", "Saturn"],
+  //   answer: "Mars"
+  // },
+  // {
+  //   question: "Which Indian is known as the Missile Man of India?",
+  //   options: ["C.V. Raman", "A.P.J. Abdul Kalam", "Vikram Sarabhai", "Homi Bhabha"],
+  //   answer: "A.P.J. Abdul Kalam"
+  // },
+  // {
+  //   question: "Where is the ISRO headquarters located?",
+  //   options: ["Hyderabad", "Mumbai", "Chennai", "Bengaluru"],
+  //   answer: "Bengaluru"
+  // },
+  // {
+  //   question: "The Nobel Peace Prize is awarded in:",
+  //   options: ["Oslo", "Stockholm", "Geneva", "London"],
+  //   answer: "Oslo"
+  // },
+  // {
+  //   question: "A and B can complete work in 30 and 40 days respectively. Together?",
+  //   options: ["16.5", "17.1", "17.14", "18"],
+  //   answer: "17.14"
+  // },
+  // {
+  //   question: "Marked ₹6000, sold at ₹5400. Discount %?",
+  //   options: ["10%", "8%", "15%", "12%"],
+  //   answer: "10%"
+  // },
+  // {
+  //   question: "If MARKET → TKERAM, then TABLE → ?",
+  //   options: ["ELBAT", "EBLTA", "EBALT", "EBATL"],
+  //   answer: "ELBAT"
+  // },
+
+  // // 🔸 Section D: Business & Economy
+  // {
+  //   question: "Which of the following is a regulatory body for securities and capital markets in India?",
+  //   options: ["RBI", "SEBI", "IRDAI", "NABARD"],
+  //   answer: "SEBI"
+  // },
+  // {
+  //   question: "The 'Startup India' initiative was launched in:",
+  //   options: ["2014", "2015", "2016", "2017"],
+  //   answer: "2016"
+  // },
+  // {
+  //   question: "What is Net Worth in business terms?",
+  //   options: ["Assets – Liabilities", "Revenue – Cost", "Income – Tax", "Sales – Marketing"],
+  //   answer: "Assets – Liabilities"
+  // },
+  // {
+  //   question: "Which of the following is a government e-commerce platform?",
+  //   options: ["Flipkart", "Amazon", "GeM", "Myntra"],
+  //   answer: "GeM"
+  // },
+  // {
+  //   question: "Which country launched AI-powered digital currency?",
+  //   options: ["China", "Sweden", "Nigeria", "Bahamas"],
+  //   answer: "China"
+  // },
+  // {
+  //   question: "Indian named in TIME’s 100 Innovators 2025?",
+  //   options: ["Nikhil Kamath", "Gita Gopinath", "Kiran Mazumdar-Shaw", "Nandan Nilekani"],
+  //   answer: "Nandan Nilekani"
+  // },
+  // {
+  //   question: "Theme of World Health Day 2025?",
+  //   options: ["Health for All", "Our Planet, Our Health", "Building a Fairer World", "My Health, My Right"],
+  //   answer: "My Health, My Right"
+  // },
+  // {
+  //   question: "Cleanest city in India (Swachh Survekshan 2024–25)?",
+  //   options: ["Surat", "Navi Mumbai", "Indore", "Ahmedabad"],
+  //   answer: "Indore"
+  // },
+  // {
+  //   question: "Which city ranked third cleanest in Swachh Survekshan 2024–25?",
+  //   options: ["Bhopal", "Navi Mumbai", "Ahmedabad", "Lucknow"],
+  //   answer: "Navi Mumbai"
+  // },
+  // {
+  //   question: "First 7-star Garbage Free City in UP?",
+  //   options: ["Prayagraj", "Lucknow", "Agra", "Gorakhpur"],
+  //   answer: "Lucknow"
+  // },
+
+  // // 🔸 Section E: Reasoning & Aptitude
+  // {
+  //   question: "Pointing to a man, Ramesh says, 'He is the son of my grandfather's only son.'",
+  //   options: ["Brother", "Father", "Cousin", "Uncle"],
+  //   answer: "Brother"
+  // },
+  // {
+  //   question: "Pointing to a man, a woman said, 'He is my brother’s only son.'",
+  //   options: ["Nephew", "Son", "Brother", "Cousin"],
+  //   answer: "Nephew"
+  // },
+  // {
+  //   question: "A person walks 4 km north, then 3 km east, and 2 km south. How far is he from his starting point?",
+  //   options: ["5 km", "4 km", "3 km", "7 km"],
+  //   answer: "4 km"
+  // },
+  // {
+  //   question: "What is the angle between clock hands at 3:15?",
+  //   options: ["30°", "37.5°", "45°", "52.5°"],
+  //   answer: "52.5°"
+  // },
+  // {
+  //   question: "How many times do hour & minute hands overlap in 24 hours?",
+  //   options: ["22", "24", "44", "48"],
+  //   answer: "44"
+  // },
+  // {
+  //   question: "Clock shows 4:20. What’s the angle between the hands?",
+  //   options: ["10°", "20°", "30°", "40°"],
+  //   answer: "20°"
+  // },
+  // {
+  //   question: "A is taller than B but shorter than C. D is shorter than E but taller than B. E is shorter than C but taller than A. Who is the tallest?",
+  //   options: ["A", "B", "C", "E"],
+  //   answer: "C"
+  // },
+  // {
+  //   question: "Which key is used to refresh a webpage in most browsers?",
+  //   options: ["F2", "F5", "F12", "Ctrl + R"],
+  //   answer: "F5"
+  // },
+  // {
+  //   question: "Oxidation number of sulfur in H₂SO₄?",
+  //   options: ["+2", "+6", "+4", "+8"],
+  //   answer: "+6"
+  // },
+  // {
+  //   question: "Which gas turns lime water milky?",
+  //   options: ["CO₂", "SO₂", "O₂", "N₂"],
+  //   answer: "CO₂"
+  // },
+
+  // // 🔸 Section F: Chemistry & Miscellaneous
+  // {
+  //   question: "pH value of pure water at 25°C is:",
+  //   options: ["6", "7", "8", "9"],
+  //   answer: "7"
+  // },
+  // {
+  //   question: "What type of bond is formed by sharing electrons?",
+  //   options: ["Ionic bond", "Metallic bond", "Covalent bond", "Hydrogen bond"],
+  //   answer: "Covalent bond"
+  // },
+  // {
+  //   question: "The currency of South Korea is:",
+  //   options: ["Yen", "Yuan", "Won", "Ringgit"],
+  //   answer: "Won"
+  // },
+  // {
+  //   question: "Sensex is related to which stock exchange?",
+  //   options: ["NSE", "BSE", "NYSE", "LSE"],
+  //   answer: "BSE"
+  // },
+  // {
+  //   question: "The term inflation refers to:",
+  //   options: ["Rise in unemployment", "Rise in general price levels", "Decrease in GDP", "Increase in foreign reserves"],
+  //   answer: "Rise in general price levels"
+  // },
+  // {
+  //   question: "Which country is India’s largest trading partner (as of 2025)?",
+  //   options: ["USA", "UAE", "China", "Germany"],
+  //   answer: "USA"
+  // },
+  // {
+  //   question: "The abbreviation MSME stands for:",
+  //   options: ["Medium Small Manufacturing Enterprises", "Ministry of Small and Medium Enterprises", "Micro, Small and Medium Enterprises", "Mega, Small and Micro Enterprises"],
+  //   answer: "Micro, Small and Medium Enterprises"
+  // },
+  // {
+  //   question: "Primary goal of Corporate Social Responsibility (CSR)?",
+  //   options: ["Increase profit", "Marketing", "Social welfare and sustainability", "Tax saving"],
+  //   answer: "Social welfare and sustainability"
+  // },
+  // {
+  //   question: "Theme of ‘World Immunization Week 2025’?",
+  //   options: ["Vaccines Save Lives", "Immunization for All is Humanly Possible", "Health is a Right", "Protect Every Child"],
+  //   answer: "Immunization for All is Humanly Possible"
+  // },
+  // {
+  //   question: "Theme for World Hypertension Day 2025?",
+  //   options: ["Prevent Hypertension", "Measure Your Blood Pressure Accurately, Control It, Live Longer", "Health Check for All", "Cardiac Safety Now"],
+  //   answer: "Measure Your Blood Pressure Accurately, Control It, Live Longer"
+  // }
 ];
 
 export default quizData;
