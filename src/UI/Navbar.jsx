@@ -1,14 +1,16 @@
-import React from 'react'
+import React from 'react';
+
 const Navbar = () => {
   return (
-    <div className='bg-blue-600 text-xl text-white p-2'>
-    <div className="flex">
-        <h2 className='p-2 text-orange-600 font-bold'>TECHTUSSLE-2025</h2>
-       <h2 className='p-2 mask-r-from-neutral-450 text-white font-bold font-[cursive]'>MASTER OF COMPUTER APPLICATION</h2>
+    <div className="bg-blue-600 text-white p-4">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between space-y-2 sm:space-y-0">
+        <h2 className="text-xl font-bold text-orange-400">TECHTUSSLE-2025</h2>
+        <h2 className="text-base sm:text-lg text-white font-bold font-[cursive] text-center sm:text-right">
+          MASTER OF COMPUTER APPLICATION
+        </h2>
+      </div>
     </div>
-      
-    </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
