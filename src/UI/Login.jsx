@@ -23,10 +23,10 @@ const Login = () => {
           
           {/* Left Side - Instructions */}
           <div className="w-full lg:w-1/2">
-            <h2 className="text-3xl font-bold text-yellow-700 mb-2">Welcome to QuizWizz 2025!</h2>
+            <h2 className="text-3xl font-bold text-yellow-700 mb-2">Welcome to Coding competititon 2025!</h2>
             <p className="text-xl font-semibold text-red-500 mb-4">Basic Rules</p>
             <ul className="text-base sm:text-lg text-gray-800 list-disc pl-5 space-y-2">
-              <li>⏱ You have 50 minutes to complete 50 questions.</li>
+              <li>⏱ You have 25 minutes to complete 25 questions.</li>
               <li>🧭 Close all other browser tabs before starting.</li>
               <li>🚫 Switching tabs will result in auto-termination.</li>
               <li>📵 Do not open any external apps or tools.</li>
@@ -54,7 +54,7 @@ const Login = () => {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  AUID Number:
+                  College ID:
                 </label>
                 <input
                   type="text"
